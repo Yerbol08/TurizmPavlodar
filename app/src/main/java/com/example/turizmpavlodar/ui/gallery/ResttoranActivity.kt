@@ -1,20 +1,19 @@
-package com.example.turizmpavlodar.ui.home
+package com.example.turizmpavlodar.ui.gallery
 
 import android.content.Intent
 import android.net.Uri
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import com.example.turizmpavlodar.R
 
-
-class HotelActivity : AppCompatActivity() {
-
+class ResttoranActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_hotel)
+        setContentView(R.layout.activity_resttoran)
+
         val imageView = findViewById<ImageView>(R.id.placeImage)
         val title =  findViewById<TextView>(R.id.title)
         val rating = findViewById<TextView>(R.id.rating)
@@ -29,7 +28,7 @@ class HotelActivity : AppCompatActivity() {
         val ratingDouble  = getIntent().getDoubleExtra("rating", 4.0)
 
         hours.setText("8:00 - 00:00")
-        phone.text = "+77476313345"
+
 
         imageView.setImageResource(image)
         title.setText(titleString)
@@ -43,24 +42,29 @@ class HotelActivity : AppCompatActivity() {
 
         when(position){
             0-> {
-                about.setText(R.string.saryarka_info)
-                location.setText(R.string.loc_saruarka)
+                about.setText(R.string.rest_info1)
+                location.setText(R.string.rest_location1)
+                phone.setText(R.string.rest_phone1)
             }
             1-> {
-                about.setText(R.string.irtysh_info)
-                location.setText(R.string.loc_irtish)
+                about.setText(R.string.rest_info2)
+                location.setText(R.string.rest_location2)
+                phone.setText(R.string.rest_phone2)
             }
             2-> {
-                about.setText(R.string.dvin_info)
-                location.setText(R.string.loc_dvin)
+                about.setText(R.string.rest_info3)
+                location.setText(R.string.rest_location3)
+                phone.setText(R.string.rest_phone3)
             }
             3-> {
-                about.setText(R.string.sever_info)
-                location.setText(R.string.loc_sever)
+                about.setText(R.string.rest_info4)
+                location.setText(R.string.rest_location4)
+                phone.setText(R.string.rest_phone4)
             }
             4-> {
-                about.setText(R.string.garden_park_info)
-                location.setText(R.string.loc_garden)
+                about.setText(R.string.rest_info5)
+                location.setText(R.string.rest_location5)
+                phone.setText(R.string.rest_phone5)
             }
 
         }

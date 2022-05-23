@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.turizmpavlodar.R
 import com.example.turizmpavlodar.databinding.FragmentGalleryBinding
+import com.example.turizmpavlodar.ui.home.HomeAdapter
+import com.example.turizmpavlodar.ui.home.HomeItems
 
 class GalleryFragment : Fragment() {
 
@@ -28,10 +31,15 @@ class GalleryFragment : Fragment() {
         _binding = FragmentGalleryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textGallery
-        galleryViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+        val data = arrayListOf<HomeItems>()
+        data.add(HomeItems("Alpenhof", R.drawable.rest_alpenhof, "5000 ₸",4.5))
+        data.add(HomeItems("Кофейня Крендель", R.drawable.rest_2,  "6000 ₸", 4.0))
+        data.add(HomeItems("Зимняя Вишня", R.drawable.rest_3,  "4000 ₸", 4.5))
+        data.add(HomeItems("Velvet", R.drawable.rest_4,  "6000 ₸",4.0))
+        data.add(HomeItems("Гриль-бар \"Veranda\"", R.drawable.rest_5,  "5000 ₸",4.0))
+
+        val adapter = context?.let { RestorantAdapter(data, it) }
+        binding.recyclerView.adapter = adapter
         return root
     }
 
